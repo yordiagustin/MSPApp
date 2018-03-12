@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             x:Class="MSPApp.Views.MenuPage"
+             Title="Menu"
+             BackgroundColor="White">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="MenuList" ItemsSource="{Binding Items, Mode=TwoWay}" HasUnevenRows="True" SeparatorVisibility="None" ItemSelected="MenuList_OnItemSelected">
+            <ListView.Header>
+                <StackLayout Orientation="Vertical" BackgroundColor="{StaticResource ColorPrimary}" Spacing="4" HeightRequest="150" Padding="20" Margin="0,0,0,20" >
+                    <abstractions:CircleImage
+                        HeightRequest="100"
+                        WidthRequest="100"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        BorderColor="White"
+                        BorderThickness="3">
+                        <abstractions:CircleImage.Source>
+                            <UriImageSource Uri="{Binding User.ProfileUrl}"/>
+                        </abstractions:CircleImage.Source>
+                        <abstractions:CircleImage.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ProfileCommand}"/>
+                        </abstractions:CircleImage.GestureRecognizers>
+                    </abstractions:CircleImage>
+                    <Label Text="{Binding User.FullName}"
+                           TextColor="White"
+                           FontSize="Small"
+                           FontFamily="{StaticResource RegularFontFamily}"
+                           HorizontalTextAlignment="Center"
+                           VerticalOptions="Center"/>
+                    <Label Text="{Binding User.Country}"
+                           TextColor="White"
+                           FontSize="Small"
+                           FontFamily="{StaticResource LightFontFamily}"
+                           HorizontalTextAlignment="Center"
+                           VerticalOptions="Center"/>
+                </StackLayout>
+            </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical" Padding="30,10">
+                                <Label Text="{Binding Title}" 
+                                   Style="{StaticResource NavigationItemText}" 
+                                   HorizontalTextAlignment="Start" 
+                                   VerticalTextAlignment="Center" 
+                                   HorizontalOptions="Start" 
+                                   VerticalOptions="Center"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout Orientation="Vertical" HeightRequest="50" VerticalOptions="EndAndExpand">
+                <Label Text="Cerrar Sesión" 
+                       TextColor="{StaticResource ColorPrimary}" 
+                       FontSize="Small"
+                       FontFamily="{StaticResource MediumFontFamily}"
+                       HorizontalTextAlignment="Center" 
+                       VerticalTextAlignment="Center" 
+                       VerticalOptions="CenterAndExpand">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding LogoutCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

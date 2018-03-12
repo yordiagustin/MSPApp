@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:MSPApp.Controls;assembly=MSPApp"
+             x:Class="MSPApp.Views.LoginPage">
+    <ContentPage.Content>
+        
+        <StackLayout Padding="30">
+
+            <Image Aspect="AspectFit" 
+                   HeightRequest="180"
+                   WidthRequest="180"
+                   Margin="0,20">
+                <Image.Source>
+                    <FileImageSource File="mspshield.png"/>
+                </Image.Source>
+            </Image>
+
+            <controls:CustomEntry
+                Placeholder="Username"
+                Style="{StaticResource LoginEntry}"
+                Text="{Binding User.Email}"/>
+
+            <controls:CustomEntry
+                Placeholder="Password"
+                IsPassword="True"
+                Style="{StaticResource LoginEntry}"
+                Text="{Binding User.Password}"/>
+
+            <Button Margin="0,20,0,10"
+                    Text="Ingresar"
+                    FontSize="Small" 
+                    TextColor="White" 
+                    BackgroundColor="{StaticResource ColorPrimary}"
+                    FontFamily="{StaticResource RegularFontFamily}"
+                    Command="{Binding LoginCommand}"/>
+            
+            <Label Text="¿No puedes acceder? Pide tu código ahora"
+                   FontSize="Small"
+                   FontFamily="{StaticResource LightFontFamily}"
+                   TextColor="DimGray"
+                   HorizontalTextAlignment="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding HelpCommand}"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <ActivityIndicator HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Color="{StaticResource ColorPrimary}" IsRunning="{Binding IsBusy}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

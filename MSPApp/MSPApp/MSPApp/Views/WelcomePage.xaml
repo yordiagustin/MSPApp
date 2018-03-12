@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MSPApp.Views.WelcomePage"
+             BackgroundColor="White">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" Padding="20">
+            <Image Margin="0,20,0,0"
+                   Aspect="AspectFit"
+                   HeightRequest="200"
+                   WidthRequest="200"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center">
+                <Image.Source>
+                    <FileImageSource File="mspshield.png"/>
+                </Image.Source>
+
+            </Image>
+            <Label Text="Welcome!"
+                       FontSize="30"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       VerticalOptions="CenterAndExpand"
+                       FontFamily="{StaticResource RegularFontFamily}"
+                       TextColor="{StaticResource ColorPrimary}"/>
+            <Button Text="Sign in to MSP Account"
+                        BorderColor="{StaticResource ColorPrimary}"
+                        BorderWidth="1"
+                        TextColor="{StaticResource ColorPrimary}"
+                        BackgroundColor="White"
+                        FontSize="Small"
+                        FontFamily="{StaticResource RegularFontFamily}"
+                        VerticalOptions="EndAndExpand"
+                        Command="{Binding GoToLoginCommand}"/>
+            <Button Text="Learn about MSP program"
+                        BorderColor="White"
+                        TextColor="White"
+                        BackgroundColor="{StaticResource ColorPrimary}"
+                        FontSize="Small"
+                        FontFamily="{StaticResource RegularFontFamily}"
+                        VerticalOptions="End"
+                        Command="{Binding SeeMoreCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

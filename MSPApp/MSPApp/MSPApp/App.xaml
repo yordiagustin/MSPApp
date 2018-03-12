@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:MSPApp.Controls;assembly=MSPApp"
+             x:Class="MSPApp.App">
+	<Application.Resources>
+
+        <ResourceDictionary>
+            <!-- Font families -->
+            <OnPlatform x:Key="RegularFontFamily" x:TypeArguments="x:String">
+                <On Platform="iOS">HelveticaNeue</On>
+                <On Platform="Android">sans-serif</On>
+            </OnPlatform>
+
+            <OnPlatform x:Key="LightFontFamily" x:TypeArguments="x:String">
+                <On Platform="iOS">HelveticaNeue-Light</On>
+                <On Platform="Android">sans-serif-light</On>
+            </OnPlatform>
+
+            <OnPlatform x:Key="MediumFontFamily" x:TypeArguments="x:String">
+                <On Platform="iOS">HelveticaNeue-Medium</On>
+                <On Platform="Android">sans-serif-medium</On>
+            </OnPlatform>
+
+            <!-- Colors -->
+            <Color x:Key="ColorPrimary">#BD1A8D</Color>
+            <Color x:Key="ColorPrimaryDark">#A3187A</Color>
+            <Color x:Key="ColorAccent">#E500A2</Color>
+            <Color x:Key="HeaderTextColor">#3d3d3d</Color>
+            <Color x:Key="BodyTextColor">#757575</Color>
+
+            <!-- Font sizes -->
+            <x:Double x:Key="CardMainTextSize">16</x:Double>
+            <x:Double x:Key="CardSecondartyTextSize">14</x:Double>
+            <x:Double x:Key="StatsNumberFontSize">16</x:Double>
+            <x:Double x:Key="StatsCaptionFontSize">14</x:Double>
+
+            <!-- Styles -->
+            <Style x:Key="NavigationItemText" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource HeaderTextColor}" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="FontFamily" Value="{StaticResource MediumFontFamily}" />
+            </Style>
+
+            <Style x:Key="CardMainText" TargetType="Label">
+                <Setter Property="FontSize" Value="{StaticResource CardMainTextSize}" />
+                <Setter Property="TextColor" Value="{StaticResource HeaderTextColor}" />
+                <Setter Property="FontFamily" Value="{StaticResource RegularFontFamily}" />
+            </Style>
+
+            <Style x:Key="CardSecondaryText" TargetType="Label">
+                <Setter Property="FontSize" Value="{StaticResource CardSecondartyTextSize}" />
+                <Setter Property="TextColor" Value="{StaticResource BodyTextColor}" />
+                <Setter Property="FontFamily" Value="{StaticResource RegularFontFamily}" />
+            </Style>
+
+            <Style x:Key="StatsNumberLabel" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource MediumFontFamily}" />
+                <Setter Property="TextColor" Value="{StaticResource HeaderTextColor}" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="FontSize" Value="{StaticResource StatsNumberFontSize}" />
+            </Style>
+
+            <Style x:Key="StatsCaptionLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource BodyTextColor}" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="FontSize" Value="{StaticResource StatsCaptionFontSize}" />
+            </Style>
+
+            <Style x:Key="LoginEntry" TargetType="controls:CustomEntry">
+                <Setter Property="FontSize" Value="Small"/>
+                <Setter Property="TextColor" Value="DimGray"/>
+                <Setter Property="PlaceholderColor" Value="Gray"/>
+                <Setter Property="FontFamily" Value="{StaticResource LightFontFamily}" />
+            </Style>
+            
+            <!--Add Text-->
+
+            <Style x:Key="TitleAddText" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource HeaderTextColor}" />
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="FontFamily" Value="{StaticResource MediumFontFamily}" />
+                <Setter Property="HorizontalTextAlignment" Value="Start"/>
+            </Style>
+            
+            <Style x:Key="QuestionText" TargetType="Label">
+                <Setter Property="TextColor" Value="Gray" />
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="FontFamily" Value="{StaticResource LightFontFamily}" />
+                <Setter Property="HorizontalTextAlignment" Value="Start"/>
+            </Style>
+            <Style x:Key="AnswerEntry" TargetType="Entry">
+                <Setter Property="TextColor" Value="Gray" />
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="FontFamily" Value="{StaticResource LightFontFamily}" />
+                <Setter Property="HorizontalTextAlignment" Value="Start"/>
+            </Style>
+
+
+            <Style x:Key="EditorEntry" TargetType="Editor">
+                <Setter Property="TextColor" Value="Gray" />
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="FontFamily" Value="{StaticResource LightFontFamily}" />
+            </Style>
+
+        </ResourceDictionary>
+
+    </Application.Resources>
+</Application>

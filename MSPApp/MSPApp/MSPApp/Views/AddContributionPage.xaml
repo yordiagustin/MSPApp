@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MSPApp.Views.AddContributionPage"
+             Title="Add Contribution">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical">
+                <StackLayout Orientation="Vertical" Padding="20,10" Spacing="4" WidthRequest="200">
+                    <!--<Label Text="Add a contribution" Style="{StaticResource TitleAddText}" Margin="0,0,0,10"/>-->
+                    <Label Text="Contribution Type" Style="{StaticResource QuestionText}"/>
+                    <Entry Placeholder="Speaking, Article, Documentation, Webinar" Style="{StaticResource AnswerEntry}" Text="{Binding Contribution.Type}"/>
+                    <Label Text="Contribution Area" Style="{StaticResource QuestionText}" />
+                    <Entry Placeholder="PowerBI, Azure, Xamarin" Style="{StaticResource AnswerEntry}" Text="{Binding Contribution.Area}"/>
+                    <Label Text="Date of Contribution" Style="{StaticResource QuestionText}"/>
+                    <DatePicker TextColor="Silver" WidthRequest="150" HorizontalOptions="Start" Date="{Binding Contribution.Date}" MaximumDate="{Binding Today}" MinimumDate="{Binding MinimumDate}"/>
+                    <Label Text="Title of Contribution" Style="{StaticResource QuestionText}"/>
+                    <Entry Placeholder="Title" Style="{StaticResource AnswerEntry}" Text="{Binding Contribution.Title}"/>
+                    <Label Text="Visibility" Style="{StaticResource QuestionText}"/>
+                    <Entry Placeholder="Everyone, Students, Professionals" Style="{StaticResource AnswerEntry}" Text="{Binding Contribution.Visibility}"/>
+                    <Label Text="Description" Style="{StaticResource QuestionText}"/>
+                    <Editor Style="{StaticResource EditorEntry}" Text="{Binding Contribution.Description}"/>
+                    <ActivityIndicator Color="{StaticResource ColorPrimary}" IsRunning="{Binding IsBusy}"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" HeightRequest="50" VerticalOptions="EndAndExpand" BackgroundColor="{StaticResource ColorPrimary}">
+                    <Label Text="Save" 
+                       TextColor="White" 
+                       FontSize="Small"
+                       FontFamily="{StaticResource MediumFontFamily}"
+                       HorizontalTextAlignment="Center" 
+                       VerticalTextAlignment="Center" 
+                       VerticalOptions="CenterAndExpand"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SaveCommand}"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

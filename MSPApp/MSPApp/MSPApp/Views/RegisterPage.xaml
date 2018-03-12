@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MSPApp.Views.RegisterPage"
+             xmlns:local="clr-namespace:MSPApp.ViewModels;assembly=MSPApp"
+             Title="Register a MSP">
+    
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout Orientation="Vertical" Padding="20">
+            <ActivityIndicator Color="{StaticResource ColorPrimary}" IsRunning="{Binding IsBusy}" VerticalOptions="FillAndExpand" HorizontalOptions="CenterAndExpand"/> 
+            <Label Text="Registra un MSP" TextColor="{StaticResource ColorPrimary}" FontSize="Large"/>
+            <Entry Placeholder="Name" Text="{Binding User.Name}"/>
+            <Entry Placeholder="Surname" Text="{Binding User.Surname}"/>
+            <Entry Placeholder="Username" Text="{Binding User.Username}"/>
+            <Entry Placeholder="Password" Text="{Binding User.Password}"/>
+            <Entry Placeholder="Email" Text="{Binding User.Email}"/>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Is Admin?" HorizontalOptions="Start"/>
+                <Switch  IsToggled="{Binding User.IsAdmin}" HorizontalOptions="EndAndExpand"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Is Active?" HorizontalOptions="Start"/>
+                <Switch  IsToggled="{Binding User.IsActive}" HorizontalOptions="EndAndExpand"/>
+            </StackLayout>
+            <Entry Placeholder="Biography" Text="{Binding User.Biography}"/>
+            <Entry Placeholder="Country" Text="{Binding User.Country}"/>
+            <Entry Placeholder="profileUrl" Text="{Binding User.ProfileUrl}"/>
+            <Entry Placeholder="firstAwarded" Text="{Binding User.FirstAwarded}"/>
+            <Entry Placeholder="numberofAwards" Text="{Binding User.NumberOfAwards}"/>
+            <Button Text="Registrar" Command="{Binding RegisterCommand}"/>
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

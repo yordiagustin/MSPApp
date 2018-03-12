@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             xmlns:controls="clr-namespace:MSPApp.Controls;assembly=MSPApp"
+             x:Class="MSPApp.Views.InitiativesPage"
+             BackgroundColor="White"
+             Title="Home">
+
+    <!--<ContentPage.ToolbarItems>
+        <ToolbarItem Icon="ic_add_white.png" Command="{Binding AddCommand}"/>
+    </ContentPage.ToolbarItems>-->
+
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" Padding="10">
+            <ListView x:Name="MenuList" ItemsSource="{Binding Initiatives, Mode=TwoWay}" HasUnevenRows="True" SeparatorVisibility="None">
+                <ListView.Header>
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="Find all initiatives here:"
+                               FontSize="Small"
+                               TextColor="{StaticResource BodyTextColor}"
+                               FontFamily="{StaticResource RegularFontFamily}"/>
+                    </StackLayout>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <controls:CardView IsClippedToBounds="True"
+                                   HasShadow="True"
+                                   BackgroundColor="White"
+                                   Margin="5"
+                                   CornerRadius="4">
+                                <Grid RowSpacing="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="80"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Image Grid.Column="0"
+                                       Grid.Row="0"
+                                       Aspect="AspectFill"
+                                       VerticalOptions="Center">
+                                        <Image.Source>
+                                            <UriImageSource Uri="{Binding ImageUrl}"/>
+                                        </Image.Source>
+                                    </Image>
+                                    <StackLayout Grid.Row="1"
+                                                 VerticalOptions="Center" Orientation="Vertical" Padding="10" Spacing="0">
+                                        <Label Text="{Binding Name}"
+                                               FontSize="Small"
+                                               FontFamily="{StaticResource RegularFontFamily}"
+                                               TextColor="{StaticResource HeaderTextColor}"
+                                               VerticalTextAlignment="Center"/>
+                                        <Label Text="{Binding Description}"
+                                               FontSize="Small"
+                                               FontFamily="{StaticResource RegularFontFamily}"
+                                               TextColor="{StaticResource BodyTextColor}"
+                                               VerticalTextAlignment="Center"/>
+                                    </StackLayout>
+                                </Grid>
+                            </controls:CardView>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

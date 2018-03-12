@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             x:Class="MSPApp.Views.ContributionsPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="ic_add_white.png" Command="{Binding AddContributionCommand}"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" Padding="10">
+            <!--<ActivityIndicator Color="{StaticResource ColorPrimary}" IsRunning="{Binding IsBusy}"/>-->
+            <StackLayout Orientation="Vertical">
+                <Label Text="Find your all contributions here"
+                   FontSize="Small"
+                   TextColor="{StaticResource BodyTextColor}"
+                   FontFamily="{StaticResource LightFontFamily}"/>
+            </StackLayout>
+            <ListView x:Name="MenuList" ItemsSource="{Binding Contributions, Mode=TwoWay}" IsPullToRefreshEnabled="True" RefreshCommand="{Binding RefreshCommand}" IsRefreshing="{Binding IsBusy, Mode=OneWay}" HasUnevenRows="True" SeparatorColor="DarkGray" SeparatorVisibility="Default">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid RowSpacing="0" ColumnSpacing="0" Padding="0,5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Grid.Column="0"
+                                    Aspect="AspectFit"
+                                    HeightRequest="40"
+                                    WidthRequest="40"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center">
+                                    <Image.Source>
+                                        <FileImageSource File="icon.png"/>
+                                    </Image.Source>
+                                </Image>
+                                <StackLayout Orientation="Vertical" Grid.Column="1" Margin="10,0" VerticalOptions="Center" Spacing="0">
+                                    <Label FontSize="Small"
+                                           TextColor="{StaticResource HeaderTextColor}"
+                                           HorizontalTextAlignment="Start"
+                                           Text="{Binding Title}"
+                                           FontFamily="{StaticResource MediumFontFamily}"/>
+                                    <Label FontSize="Micro"
+                                           TextColor="DimGray"   
+                                           HorizontalTextAlignment="Start"
+                                           LineBreakMode="WordWrap"
+                                           Text="{Binding Area}"
+                                           FontFamily="{StaticResource LightFontFamily}"/>
+                                </StackLayout>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

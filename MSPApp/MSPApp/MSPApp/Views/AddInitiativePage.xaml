@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MSPApp.Views.AddInitiativePage"
+             Title="Add Initiative">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical">
+                <StackLayout Orientation="Vertical" Padding="20,10" Spacing="4" WidthRequest="200">
+                    <!--<Label Text="Add a contribution" Style="{StaticResource TitleAddText}" Margin="0,0,0,10"/>-->
+                    <Label Text="Title" Style="{StaticResource QuestionText}"/>
+                    <Entry Placeholder="#giraMSP2018" Style="{StaticResource AnswerEntry}" Text="{Binding Initative.Name}"/>
+                    <Label Text="Description" Style="{StaticResource QuestionText}"/>
+                    <Editor Style="{StaticResource EditorEntry}" Text="{Binding Initiative.Description}"/>
+                    <Label Text="Fiscal Year" Style="{StaticResource QuestionText}"/>
+                    <Entry Placeholder="2018,2019" Style="{StaticResource AnswerEntry}" Text="{Binding Initiative.FiscalYear}"/>
+                    <Label Text="Background Url" Style="{StaticResource QuestionText}"/>
+                    <Entry Placeholder="http://.." Style="{StaticResource AnswerEntry}" Text="{Binding Initiative.ImageUrl}"/>
+                    <Label Text="Url" Style="{StaticResource QuestionText}"/>
+                    <Entry Placeholder="http://.." Style="{StaticResource AnswerEntry}" Text="{Binding Initiative.Url}"/>
+                    <!--<Label Text="Start Date" Style="{StaticResource QuestionText}"/>-->
+                    <!--<DatePicker TextColor="Silver" WidthRequest="150" HorizontalOptions="Start" Date="{Binding Contribution.Date}" MinimumDate="{Binding Today}"/>
+                    <Label Text="End Date" Style="{StaticResource QuestionText}"/>
+                    <DatePicker TextColor="Silver" WidthRequest="150" HorizontalOptions="Start" Date="{Binding Contribution.Date}" MinimumDate="{Binding Today}"/>-->
+                    <ActivityIndicator Color="{StaticResource ColorPrimary}" IsRunning="{Binding IsBusy}"></ActivityIndicator>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" HeightRequest="50" VerticalOptions="EndAndExpand" BackgroundColor="{StaticResource ColorPrimary}">
+                    <Label Text="Save" 
+                       TextColor="White" 
+                       FontSize="Small"
+                       FontFamily="{StaticResource MediumFontFamily}"
+                       HorizontalTextAlignment="Center" 
+                       VerticalTextAlignment="Center" 
+                       VerticalOptions="CenterAndExpand"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SaveCommand}"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
